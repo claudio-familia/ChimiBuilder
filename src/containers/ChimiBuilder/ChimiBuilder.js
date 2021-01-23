@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 
 import Chimi from '../../components/Chimi/Chimi';
 import BuildControls from '../../components/Chimi/BuildControls/BuildControls';
-import Aux from '../../components/hoc/Auxr';
+import Aux from '../../hoc/Auxr';
+import Modal from '../../components/UI/Modal/Modal';
+import OrderSumary from '../../components/Chimi/OrderSumary/OrderSumary';
 
 const INGREDIENT_PRICES = {
     salad: 0.5,
@@ -20,7 +22,8 @@ class BurgerBuilder extends Component {
             meat: 0
         },
         totalPrice: 4,
-        purchasable: false
+        purchasable: false,
+        purchasing: false
     }
 
     ingredientHandler = (type, isAdding) => {
@@ -55,6 +58,19 @@ class BurgerBuilder extends Component {
         })
     }
 
+    showOrderSumary = () => {
+        this.setState({purchasing : true});
+    }
+
+    hideOrderSumary = () => {
+        this.setState({purchasing : false});
+    }
+
+    continuePurchase = () => {
+        alert('You bought a burger')
+    }
+
+
     render(){
         const disabledControls = {...this.state.ingredients};        
         
@@ -63,12 +79,20 @@ class BurgerBuilder extends Component {
         
         return (
             <Aux>
+                <Modal show={this.state.purchasing} closed={this.hideOrderSumary}>
+                    <OrderSumary 
+                        ingredients={this.state.ingredients} 
+                        cancel={this.hideOrderSumary}
+                        continue={this.continuePurchase}
+                        price={this.state.totalPrice} />
+                </Modal>
                 <Chimi ingredients={this.state.ingredients} />                
                 <BuildControls
                     price={this.state.totalPrice}
                     purchasable={this.state.purchasable}
                     ingredientHandler={this.ingredientHandler}
-                    disabled={disabledControls} />
+                    disabled={disabledControls}
+                    ordered={this.showOrderSumary} />
             </Aux>
         );
     }
