@@ -1,0 +1,18 @@
+.DrawerToggle {
+    height: 80%;
+    cursor: pointer;
+}
+
+.DrawerToggle:hover {
+    height: 100%;
+}
+
+.Img {
+    height: 45px;
+}
+
+@media (min-width: 500px) {
+    .MobileOnly {
+        display: none;
+    }
+}

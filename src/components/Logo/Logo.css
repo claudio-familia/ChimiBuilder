@@ -1,0 +1,28 @@
+.Logo {
+    background-color: #212121;
+    padding: 0 6px;
+    height: 85%;
+}
+
+.Logo img {
+    height: 90%;
+}
+
+.White {
+    background-color: white;
+}
+
+.Img :hover {
+    height: 100%;
+    cursor: pointer;
+}
+
+.Image {
+    margin-top: 2px;
+}
+
+@media (max-width: 499px) {
+    .DesktopOnly {
+        display: none;
+    }
+}

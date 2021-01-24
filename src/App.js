@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Layout from './components/Layout/Layout';
+import Layout from './containers/Layout/Layout';
 import ChimiBuilder from './containers/ChimiBuilder/ChimiBuilder';
 
 class App extends Component {
