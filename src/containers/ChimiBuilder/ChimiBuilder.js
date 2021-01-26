@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 
-import Chimi from '../../components/Chimi/Chimi';
-import BuildControls from '../../components/Chimi/BuildControls/BuildControls';
-import Aux from '../hoc/Auxr';
-import Modal from '../../components/UI/Modal/Modal';
-import OrderSumary from '../../components/Chimi/OrderSumary/OrderSumary';
 import orderService from '../../services/order-service';
-import costumerSevice from '../../services/costumer-service';
 import ingredientService from '../../services/ingredients-service';
+import costumerSevice from '../../services/costumer-service';
+
+import Modal from '../../components/UI/Modal/Modal';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import requestHandler from '../../components/UI/RequestHandler/RequestHandler';
+
+import Aux from '../hoc/Auxr';
+import Chimi from '../../components/Chimi/Chimi';
+import BuildControls from '../../components/Chimi/BuildControls/BuildControls';
+import OrderSumary from '../../components/Chimi/OrderSumary/OrderSumary';
 
 const INGREDIENT_PRICES = {
     salad: 0.5,
@@ -100,7 +102,6 @@ class BurgerBuilder extends Component {
                 });
             })
     }
-
 
     render() {
         const disabledControls = { ...this.state.ingredients };
