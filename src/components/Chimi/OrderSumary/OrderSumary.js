@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Button from '../../UI/Button/Button';
-import Aux from '../../../hoc/Auxr';
+import Aux from '../../../containers/hoc/Auxr';
 
 const orderSumary = ( props ) => {
     const ingredientSummary = Object.keys(props.ingredients).map(ingKey => {

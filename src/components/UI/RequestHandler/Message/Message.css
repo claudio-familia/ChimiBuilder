@@ -1,0 +1,28 @@
+.Success {
+    color: #2e7d32;
+}
+
+.Error {
+    color: #c62828;
+}
+
+.Button {
+    padding: 15px;
+    color: white;
+    background-color: #212121;
+    border-style: none;
+    border-radius: 10px;
+}
+
+
+.Button:hover {
+    color: white;
+    background-color: #615f5f ;
+    cursor: pointer;
+}
+
+.ButtonArea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
