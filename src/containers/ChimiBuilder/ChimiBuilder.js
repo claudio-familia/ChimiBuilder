@@ -27,7 +27,7 @@ class BurgerBuilder extends Component {
         loading: true
     }
 
-    componentDidMount() {        
+    componentDidMount() {
         ingredientService.get().then(res => {            
             this.setState({
                 ingredients: res.data,
@@ -133,7 +133,7 @@ class BurgerBuilder extends Component {
 
         return (
             <Aux>                
-                {ChimiBuilder}
+                {this.state.loading ? <div><Spinner /><br /></div> : ChimiBuilder}
             </Aux>
         );
     }

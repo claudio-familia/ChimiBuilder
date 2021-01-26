@@ -7,8 +7,7 @@ const requestHandler = ( WrappedComponent, baseService ) => {
     return class extends Component {
         state = {
             error: null,
-            success: null,
-            notifcations: true
+            success: null
         }
         constructor() {
             super()
@@ -18,12 +17,14 @@ const requestHandler = ( WrappedComponent, baseService ) => {
             });
 
             this.resInterceptors = baseService.interceptors.response.use(res => {
-                this.setState({
-                    success: {
-                        title: 'Exitoso', 
-                        message: 'Operación realizada correctamente'
-                    }
-                });
+                if(res.config.url.indexOf('ingredients') === -1){
+                    this.setState({
+                        success: {
+                            title: 'Exitoso', 
+                            message: 'Operación realizada correctamente'
+                        }
+                    });
+                }
                 return res;
             }, error => {
                 this.setState({
